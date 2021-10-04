@@ -31,3 +31,9 @@ li {
   background-color: rgb(224, 214, 32);
   border-radius: 2rem;
 }
+
+#zipcode {
+  background-color: rgb(26, 88, 98);
+  color: white;
+  border-radius: 2rem;
+}
