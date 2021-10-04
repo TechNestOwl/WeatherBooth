@@ -4,6 +4,8 @@ let li1 = document.querySelector("#li1")
 let li2 = document.getElementById("#li2")
 let li3 = document.getElementById("#li3")
 let li4 = document.getElementById("#li4")
+let weatherIcon = document.querySelector("#weatherIcon");
+
 
 const getWeatherData = async (zippy) => {
     const data = await fetch(
@@ -20,12 +22,22 @@ const getWeatherData = async (zippy) => {
     windspeed.innerHTML = "Current windspeed: " + formattedData.wind.speed;
     let location = document.querySelector("#li4");
     location.innerHTML = "Location: " + formattedData.name;
-
-
+    
+    //add weatherIcon
+    let getWeatherIcon = () => {
+        let iconImg = document.createElement('img');
+        
+        if (formattedData.weather[0].main == "Clouds"){
+            iconImg.src = "WeatherBooth/Assets/cloudIcon.png";
+            // weatherIcon.ainnerHTML = iconImg;
+            weatherIcon.appendChild(iconImg);
+        }
+    };
+    getWeatherIcon();
 };
-
 
 zipBtn.addEventListener("click", function(evt) {
     evt.preventDefault()
     getWeatherData(zipcode.value);
+    
 });
