@@ -1,1 +1,3 @@
 # WeatherBooth
+
+![App Image](../Assets/)
