@@ -1,3 +1,3 @@
 # WeatherBooth
 
-![App Image](WeatherBooth/Assets/screenShot.png)
+![App Image](/Assets/screenShot.png)
