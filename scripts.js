@@ -26,11 +26,18 @@ const getWeatherData = async (zippy) => {
     //add weatherIcon
     let getWeatherIcon = () => {
         let iconImg = document.createElement('img');
+        let currentWeather = formattedData.weather[0].main;
         
-        if (formattedData.weather[0].main == "Clouds"){
-            iconImg.src = "WeatherBooth/Assets/cloudIcon.png";
-            // weatherIcon.ainnerHTML = iconImg;
+        if (currentWeather == "Clouds"){
+            iconImg.src = "Assets/cloudIcon.png";
+            // weatherIcon.innerHTML = iconImg;
             weatherIcon.appendChild(iconImg);
+            console.log(iconImg);
+        }else if (currentWeather == "Clear"){
+            iconImg.src = "Assets/clearIcon.png";
+            // weatherIcon.innerHTML = iconImg;
+            weatherIcon.appendChild(iconImg);
+            console.log(iconImg);
         }
     };
     getWeatherIcon();
