@@ -32,19 +32,17 @@ const getWeatherData = async (zippy) => {
             iconImg.src = "Assets/cloudIcon.png";
             // weatherIcon.innerHTML = iconImg;
             weatherIcon.appendChild(iconImg);
-            console.log(iconImg);
         }else if (currentWeather == "Clear"){
             iconImg.src = "Assets/clearIcon.png";
             // weatherIcon.innerHTML = iconImg;
             weatherIcon.appendChild(iconImg);
-            console.log(iconImg);
         }
     };
     getWeatherIcon();
 };
 
-zipBtn.addEventListener("click", function(evt) {
-    evt.preventDefault()
+button.addEventListener("click", e => {
+    e.preventDefault()
     getWeatherData(zipcode.value);
     
 });
