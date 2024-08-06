@@ -47,10 +47,61 @@ ul {
 .vertical-center {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
 }
 
 li{
   margin-bottom: 5px;
+}
+
+
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+
+  /* Optional: Add padding and margin for spacing */
+  padding: 20px;
+  margin: 20px;
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Lift card slightly on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.card img {
+  width: 100%; /* Ensure images fill the card */
+  border-radius: 8px 8px 0 0; /* Rounded corners only at the top */
+}
+
+.card .card-body {
+  padding: 15px;
+}
+
+.card h5 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #666;
+}
+
+.card a {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-top: 10px;
+  background-color: #007bff; /* Bootstrap primary color */
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.card a:hover {
+  background-color: #0056b3; /* Darker shade on hover */
 }

@@ -5,6 +5,7 @@ let li2 = document.getElementById("#li2")
 let li3 = document.getElementById("#li3")
 let li4 = document.getElementById("#li4")
 let weatherIcon = document.querySelector("#weatherIcon");
+let infoCard = document.querySelector("#infoCard");
 
 
 const getWeatherData = async (zippy) => {
@@ -22,6 +23,7 @@ const getWeatherData = async (zippy) => {
     windspeed.innerHTML = "Current windspeed: " + formattedData.wind.speed;
     let location = document.querySelector("#li4");
     location.innerHTML = "Location: " + formattedData.name;
+    infoCard.classList.add("card");
     
     //add weatherIcon
     let getWeatherIcon = () => {
