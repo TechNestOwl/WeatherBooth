@@ -1,15 +1,17 @@
 body {
-  background: rgb(15, 46, 142);
-  background: linear-gradient(
-    90deg,
-    rgba(15, 46, 142, 1) 0%,
-    rgb(148, 150, 232) 0%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0; /* Light background color */
+  color: #3d3737; /* Main text color */
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Full viewport height */
 }
 li {
   /* text-decoration: none; */
   list-style: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 .interface {
   display: flex;
@@ -57,7 +59,7 @@ li{
 
 
 .card {
-  border-radius: 8px;
+  border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
@@ -69,7 +71,8 @@ li{
 
 .card:hover {
   transform: translateY(-10px); /* Lift card slightly on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  background-color: #e9f9f6;
 }
 
 .card img {
@@ -89,19 +92,26 @@ li{
 .card p {
   font-size: 1rem;
   line-height: 1.5;
-  color: #666;
+  color: #f6f6f6;
 }
 
 .card a {
   display: inline-block;
   padding: 8px 12px;
   margin-top: 10px;
-  background-color: #007bff; /* Bootstrap primary color */
-  color: #fff;
+  background-color: #3771dd; /* Bootstrap primary color */
+  color: #b7ddd8;
   border-radius: 4px;
   text-decoration: none;
 }
 
 .card a:hover {
   background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+footer{
+  background-color: rgb(20, 68, 75);
+  margin-bottom: 0;
+
 }
