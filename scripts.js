@@ -31,12 +31,30 @@ const getWeatherData = async (zippy) => {
         let currentWeather = formattedData.weather[0].main;
         
         if (currentWeather == "Clouds"){
-            iconImg.src = "Assets/cloudIcon.png";
+            iconImg.src = "Assets/wi-cloudy-gusts.svg";
             // weatherIcon.innerHTML = iconImg;
             weatherIcon.insertBefore(iconImg, weatherIcon.firstChild); // inserting new icon as the first item/child
             weatherIcon.removeChild(weatherIcon.children[1]); // removing second(previous) item/child 
         }else if (currentWeather == "Clear"){
             iconImg.src = "Assets/clearIcon.png";
+            // weatherIcon.innerHTML = iconImg;
+            // weatherIcon.appendChild(iconImg);
+            weatherIcon.insertBefore(iconImg, weatherIcon.firstChild);
+            weatherIcon.removeChild(weatherIcon.children[1]);
+        }else if (currentWeather == "Rain"){
+            iconImg.src = "Assets/wi-showers.svg";
+            // weatherIcon.innerHTML = iconImg;
+            // weatherIcon.appendChild(iconImg);
+            weatherIcon.insertBefore(iconImg, weatherIcon.firstChild);
+            weatherIcon.removeChild(weatherIcon.children[1]);
+        }else if (currentWeather == "Mist"){
+            iconImg.src = "Assets/wi-showers.svg";
+            // weatherIcon.innerHTML = iconImg;
+            // weatherIcon.appendChild(iconImg);
+            weatherIcon.insertBefore(iconImg, weatherIcon.firstChild);
+            weatherIcon.removeChild(weatherIcon.children[1]);
+        }else if (currentWeather == "Snow"){
+            iconImg.src = "Assets/wi-snow.svg";
             // weatherIcon.innerHTML = iconImg;
             // weatherIcon.appendChild(iconImg);
             weatherIcon.insertBefore(iconImg, weatherIcon.firstChild);
