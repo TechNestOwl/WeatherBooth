@@ -14,22 +14,42 @@
         <img src="/Assets/logo_weatherBooth.png">
     </div>    
     <div class="interface">
-        <h4>Weather for your specific location...</h4>
-        <form class="weatherForm">
+        <!-- <h4>Weather for your specific location...</h4> -->
+        <!-- <form class="weatherForm">
             <label for="zipcode" class="form-label">Local weather by Zipcode:</label><br>
             <input type="number" class="form-control" id="zipcode" name="zipcode" placeholder="Enter zipcode">
             <button type="submit" id="zipBtn" class="btn btn-primary">Get Forecast</button>
-            <!-- <button type="submit" onclick="getWeatherByZip()">Get Forecast</button> -->
-        </form>
-        <div id="weatherInfo">
-            <div id="weatherIcon"></div>
-            <ul>
-                <li id="li4"></li>
-                <li id="li1"></li>
-                <li id="li2"></li>
-                <li id="li3"></li>
-            </ul>
-        </div>
+        </form> -->
+        
+            <div class="container">
+                <div class="row">
+                  <div class="col-md-6 offset-md-3 vertical-center">
+                    <form>
+                      <div class="form-group">
+                        <label for="zipcode">Get weather by zipcode:</label>
+                        <input type="number" class="form-control" id="zipcode" name="zipcode" placeholder="Enter zipcode" required>
+                      </div>
+                      <button type="submit" id="zipBtn" class="btn btn-primary btn-block">Display Forecast</button>
+                    </form>
+                    <div class="container-fluid h-100">
+                        <div class="row h-100">
+                            <div id="weatherInfo" class="col-12t">
+                                <div id="weatherIcon"></div>
+                                <ul>
+                                    <li id="li4"></li>
+                                    <li id="li1"></li>
+                                    <li id="li2"></li>
+                                    <li id="li3"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+        <!-- <button type="submit" onclick="getWeatherByZip()">Get Forecast</button> -->
     </div>
       
 
