@@ -121,7 +121,7 @@ footer{
   margin-bottom: 10px; /* Space below the heading */
 }
 
-.socialIconList {
+#socialIconList {
   margin: 100px;
   display:flex;
   flex-direction: row;
