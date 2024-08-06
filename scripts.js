@@ -9,7 +9,7 @@ let weatherIcon = document.querySelector("#weatherIcon");
 
 const getWeatherData = async (zippy) => {
     const data = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?zip=${zippy},us&appid=10d8beea1817fae16684102120bc9863&units=imperial`);
+        `https://api.openweathermap.org/data/2.5/weather?zip=${zippy},us&appid=10d8beea1817fae16684102120bc9863&units=imperial`);
     //console.log(data);
     const formattedData = await data.json();
     console.log(formattedData);
