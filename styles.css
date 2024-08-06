@@ -114,12 +114,19 @@ footer{
   background-color: rgb(20, 68, 75);
   margin-bottom: 0;
 }
+.footer-heading {
+  font-size: 1.1rem; /* Adjust font size as needed */
+  font-weight: bold;
+  color: #696868; /* Dark text color */
+  margin-bottom: 10px; /* Space below the heading */
+}
 
 .socialIconList {
   margin: 100px;
   display:flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
 }
 
