@@ -41,5 +41,16 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 
+}
+.vertical-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li{
+  margin-bottom: 5px;
 }
