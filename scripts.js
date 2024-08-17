@@ -61,6 +61,7 @@ const getWeatherData = async (zippy) => {
             // weatherIcon.appendChild(iconImg);
             weatherIcon.insertBefore(iconImg, weatherIcon.firstChild);
             weatherIcon.removeChild(weatherIcon.children[1]);
+            console.log("this is a youtube shortvideo")
         }
     };
 
