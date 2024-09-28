@@ -231,6 +231,7 @@ footer .footer-heading {
     font-weight: bold;
 }
 
+/* NEEDS ATTENTION: make it so png files increase in size */
 footer a {
     margin: 0 10px;
     transition: transform 0.3s ease;
