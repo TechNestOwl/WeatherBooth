@@ -27,8 +27,6 @@ const getWeatherData = async (zippy) => {
     
     //add weatherIcon
     let getWeatherIcon = () => {
-        
-
         let iconImg = document.createElement('img');
         let currentWeather = formattedData.weather[0].main;
         
