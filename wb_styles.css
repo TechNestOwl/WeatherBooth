@@ -154,7 +154,9 @@ li {
     }
 }
 
-
+#cardContainer {
+    visibility:hidden;
+}
 
 
 /* WeatherInfo card */
@@ -164,7 +166,9 @@ li {
     padding: 20px; /* Inner spacing */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-    animation: fadeIn 0.5s; /* Animation for when the weather info appears */
+    animation: fadeIn 1s; /* Animation for when the weather info appears */
+    /* animation: slideIn 1s ease; */
+
 }
 
 #weatherInfo:hover {

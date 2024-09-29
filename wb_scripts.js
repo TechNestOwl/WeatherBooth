@@ -22,6 +22,9 @@ const getWeatherData = async (zippy) => {
     location.innerHTML = "Location: " + formattedData.name;
     infoCard.classList.add("card");
 
+      //display resultsCard
+      cardContainer.style.visibility = "visible";
+
     let getWeatherIcon = () => {
         let iconImg = document.createElement('img');
         let currentWeather = formattedData.weather[0].main;
@@ -43,6 +46,7 @@ const getWeatherData = async (zippy) => {
         weatherIcon.innerHTML = "";
         weatherIcon.appendChild(iconImg);
     };
+   
     getWeatherIcon();
 };
 
