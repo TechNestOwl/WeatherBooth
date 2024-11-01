@@ -10,61 +10,41 @@ let infoCard = document.querySelector("#infoCard");
 
 const getWeatherData = async (zippy) => {
     const data = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?zip=${zippy},us&appid=10d8beea1817fae16684102120bc9863&units=imperial`);
-    //console.log(data);
+        `https://api.openweathermap.org/data/2.5/weather?zip=${zippy},us&appid=10d8beea1817fae16684102120bc9863&units=imperial`
+    );
     const formattedData = await data.json();
-    console.log(formattedData);
 
-    let weather = document.querySelector("#li1");
-    weather.innerHTML = "Current weather: " + formattedData.weather[0].main;
-    let temp = document.querySelector("#li2");
-    temp.innerHTML = "Current temp: " + formattedData.main.temp;
-    let windspeed = document.querySelector("#li3");
-    windspeed.innerHTML = "Current windspeed: " + formattedData.wind.speed;
-    let location = document.querySelector("#li4");
-    location.innerHTML = "Location: " + formattedData.name;
+    document.querySelector("#li1").innerHTML = "Weather: " + formattedData.weather[0].main;
+    document.querySelector("#li2").innerHTML = "Temperature: " + formattedData.main.temp + " °F";
+    document.querySelector("#li3").innerHTML = "Windspeed: " + formattedData.wind.speed + " mph";
+    document.querySelector("#li4").innerHTML = "Location: " + formattedData.name;
+    document.querySelector("#li5").innerHTML = "Feels like: " + formattedData.main.feels_like + " °F";
+    document.querySelector("#li6").innerHTML = "Humidity: " + formattedData.main.humidity + " %";
+    document.querySelector("#li7").innerHTML = "Pressure: " + formattedData.main.pressure + " hPa";
+    document.querySelector("#li8").innerHTML = "Visibility: " + (formattedData.visibility / 1000) + " km";
+
     infoCard.classList.add("card");
-    
-    //add weatherIcon
+
     let getWeatherIcon = () => {
         let iconImg = document.createElement('img');
         let currentWeather = formattedData.weather[0].main;
         
-        if (currentWeather == "Clouds"){
+        if (currentWeather == "Clouds") {
             iconImg.src = "Assets/wi-cloudy-gusts.svg";
-            // weatherIcon.innerHTML = iconImg;
-            weatherIcon.insertBefore(iconImg, weatherIcon.firstChild); // inserting new icon as the first item/child
-            weatherIcon.removeChild(weatherIcon.children[1]); // removing second(previous) item/child 
-        }else if (currentWeather == "Clear"){
+        } else if (currentWeather == "Clear") {
             iconImg.src = "Assets/clearIcon.png";
-            // weatherIcon.innerHTML = iconImg;
-            // weatherIcon.appendChild(iconImg);
-            weatherIcon.insertBefore(iconImg, weatherIcon.firstChild);
-            weatherIcon.removeChild(weatherIcon.children[1]);
-        }else if (currentWeather == "Rain"){
+        } else if (currentWeather == "Rain" || currentWeather == "Mist") {
             iconImg.src = "Assets/wi-showers.svg";
-            // weatherIcon.innerHTML = iconImg;
-            // weatherIcon.appendChild(iconImg);
-            weatherIcon.insertBefore(iconImg, weatherIcon.firstChild);
-            weatherIcon.removeChild(weatherIcon.children[1]);
-        }else if (currentWeather == "Mist"){
-            iconImg.src = "Assets/wi-showers.svg";
-            // weatherIcon.innerHTML = iconImg;
-            // weatherIcon.appendChild(iconImg);
-            weatherIcon.insertBefore(iconImg, weatherIcon.firstChild);
-            weatherIcon.removeChild(weatherIcon.children[1]);
-        }else if (currentWeather == "Snow"){
+        } else if (currentWeather == "Snow") {
             iconImg.src = "Assets/wi-snow.svg";
-            // weatherIcon.innerHTML = iconImg;
-            // weatherIcon.appendChild(iconImg);
-            weatherIcon.insertBefore(iconImg, weatherIcon.firstChild);
-            weatherIcon.removeChild(weatherIcon.children[1]);
-            console.log("this is a youtube shortvideo")
         }
+        weatherIcon.innerHTML = ''; // Clear existing icon
+        weatherIcon.appendChild(iconImg); // Append the new icon
     };
 
     getWeatherIcon();
 };
+
 
 button.addEventListener("click", e => {
     e.preventDefault()
