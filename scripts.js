@@ -51,3 +51,44 @@ button.addEventListener("click", e => {
     getWeatherData(zipcode.value);
     
 });
+
+// Background animations
+
+function updateBackground(weatherCondition) {
+    const background = document.getElementById("weatherBackground");
+    background.innerHTML = ''; // Clear previous elements
+
+    if (weatherCondition === "Clear") {
+        const sun = document.createElement("div");
+        sun.classList.add("sun");
+        background.appendChild(sun);
+    } else if (weatherCondition === "Clouds") {
+        for (let i = 0; i < 3; i++) {
+            const cloud = document.createElement("div");
+            cloud.classList.add("cloud");
+            cloud.style.top = `${20 + i * 20}%`;
+            cloud.style.left = `${i * 50}px`;
+            background.appendChild(cloud);
+        }
+    } else if (weatherCondition === "Rain") {
+        for (let i = 0; i < 50; i++) {
+            const raindrop = document.createElement("div");
+            raindrop.classList.add("raindrop");
+            raindrop.style.left = `${Math.random() * 100}vw`;
+            raindrop.style.animationDelay = `${Math.random() * 1.5}s`;
+            background.appendChild(raindrop);
+        }
+    } else if (weatherCondition === "Snow") {
+        for (let i = 0; i < 50; i++) {
+            const snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.style.left = `${Math.random() * 100}vw`;
+            snowflake.style.animationDelay = `${Math.random() * 3}s`;
+            background.appendChild(snowflake);
+        }
+    }
+}
+
+// Example usage:
+// Call updateBackground(formattedData.weather[0].main) after getting data from API
+
