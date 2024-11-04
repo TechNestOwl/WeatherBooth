@@ -2,91 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherBooth</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="logo">
-        <img src="./Assets/logo_weatherBooth.png">
-    </div>    
+    <!-- Dynamic background container -->
+    <div class="weather-background" id="weatherBackground"></div>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Main content container -->
     <div class="interface">
-        <!-- <h4>Weather for your specific location...</h4> -->
-        <!-- <form class="weatherForm">
-            <label for="zipcode" class="form-label">Local weather by Zipcode:</label><br>
-            <input type="number" class="form-control" id="zipcode" name="zipcode" placeholder="Enter zipcode">
-            <button type="submit" id="zipBtn" class="btn btn-primary">Get Forecast</button>
-        </form> -->
-            <div class="container">
-                <div class="row">
-                  <div class="col-md-6 offset-md-3">
-                    <form>
-                      <div class="form-group">
-                        <label for="zipcode">Get weather by zipcode:</label>
-                        <input type="number" class="form-control" id="zipcode" name="zipcode" placeholder="Enter zipcode" required>
-                      </div>
-                      <button type="submit" id="zipBtn" class="btn btn-primary btn-block">Check Forecast</button>
-                    </form>
-        <div class="weather-background" id="weatherBackground"></div>
+        <div class="logoWhite">
+            <i class="fas fa-cloud-sun"></i>
+            <h1>WeatherBooth</h1>
+        </div>
 
-                    <div class="container-fluid h-100 vertical-center" >
-                        <div class="row h-80" id="infoCard">
-                            <div id="weatherInfo" class="col-12t">
-                                <div id="weatherIcon"></div>
-                                <ul class="list-group">
-                                    <li id="li4" class="badge badge-primary badge-pill"></li>
-                                    <li id="li1" class="badge badge-primary badge-pill"></li>
-                                    <li id="li2" class="badge badge-primary badge-pill"></li>
-                                    <li id="li3" class="badge badge-primary badge-pill"></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
+        <!-- Weather form -->
+        <form class="weatherForm">
+            <div class="input-group">
+                <input type="text" id="zipcode" placeholder="Enter ZIP Code" required pattern="[0-9]{5}">
+                <button id="zipBtn" type="submit">
+                    <i class="fas fa-search"></i>
+                    Get Weather
+                </button>
+            </div>
+            <div class="error-message" id="errorMessage"></div>
+        </form>
+
+        <!-- Weather information card -->
+        <div id="infoCard" class="card hidden">
+            <div class="card-header">
+                <div id="weatherIcon" class="weather-icon"></div>
+                <h2 id="location">--</h2>
+            </div>
+            
+            <div class="main-temp">
+                <span id="temperature">--</span>
+                <span class="degree-symbol">°F</span>
+            </div>
+
+            <div class="weather-details">
+                <div class="detail-item">
+                    <i class="fas fa-wind"></i>
+                    <span id="windspeed">--</span>
                 </div>
-              </div>
-        <!-- <button type="submit" onclick="getWeatherByZip()">Get Forecast</button> -->
-        <!-- I need to create a new card for the AI to input a generative image
-         -->
-          </div>
+                <div class="detail-item">
+                    <i class="fas fa-thermometer-half"></i>
+                    <span id="feelslike">--</span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-tint"></i>
+                    <span id="humidity">--</span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-compress-arrows-alt"></i>
+                    <span id="pressure">--</span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-eye"></i>
+                    <span id="visibility">--</span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="modal"></div>
-    <di id="dataPoints">
-        <ul class="list-group">
-            <li id="li4" class="badge badge-primary badge-pill"></li>
-            <li id="li1" class="badge badge-primary badge-pill"></li>
-            <li id="li2" class="badge badge-primary badge-pill"></li>
-            <li id="li3" class="badge badge-primary badge-pill"></li>
-            <li id="li5" class="badge badge-primary badge-pill"></li>
-            <li id="li6" class="badge badge-primary badge-pill"></li>
-            <li id="li7" class="badge badge-primary badge-pill"></li>
-            <li id="li8" class="badge badge-primary badge-pill"></li>
-        </ul>        
-    </div>
-      
-      
 
-    <script src="scripts.js"></script>
+    <!-- Footer with social media links -->
+    <footer>
+        <h2 class="footer-heading">Follow Me</h2>
+        <div id="socialIconList">
+            <a href="https://www.linkedin.com/in/gill-guimaraes-6aa9141b4/" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="https://x.com/gill_guimaraes" class="social-icon"><i class="fab fa-x"></i></a>
+            <a href="https://www.youtube.com/@gill_gui" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>Gill Guimaraes<br>gill@techXdev.com</p>
+
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-<footer class="text-light py-4">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-lg-12 mb-4">
-                <h5 class="footer-heading">Connect with me on:</h5><br>
-                <a href="https://github.com/TechNestOwl" target="_blank" title="GitHub"><img src="Assets/github-light.svg" style="width: 50px;"></a>
-                <a href="https://www.linkedin.com/in/gill-guimaraes-6aa9141b4/" target="_blank" title="LinkedIn"><img src="Assets/linkedin.svg" style="width: 50px;"></a>
-                <a href="https://twitter.com/GuimaraesGill" target="_blank" title="Twitter"><img src="Assets/x-light.svg" style="width: 50px; height: 30px;"></i></a>
-                <a href="https://www.facebook.com/guil.guimaraes.1/" target="_blank" title="Facebook"><img src="Assets/meta-horizontal-light.svg" style="width: 100px;"></a>
-                <a href="https://www.youtube.com/channel/UCjn8L2mKg4gdPSMnA0XIWJg" target="_blank" title="YouTube"><img src="Assets/youtube-horizontal.svg" style="width: 100px;"></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-            <p class="mb-0">© 2024 Gill Guimaraes</p>
-            </div>
-        </div>
-    </div>
-  </footer>
 </html>
