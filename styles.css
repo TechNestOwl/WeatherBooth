@@ -16,7 +16,7 @@ body, html {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #f8f9fa;
+    background: var(--secondary-color);
 }
 
 /* Weather background effects */
@@ -163,8 +163,8 @@ body, html {
 }
 
 .logo i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
+    font-size: 3rem;
+    color: var(--background-light);
     margin-bottom: 1rem;
 }
 
