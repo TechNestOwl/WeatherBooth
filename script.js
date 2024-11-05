@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const loadingOverlay = document.getElementById("loadingOverlay");
   const errorMessage = document.getElementById("errorMessage");
 
+  // h1 title/logo reload button
+  document.getElementById("reloadBtn").onclick = function() {
+    location.reload();
+};
+
   // Weather effect generators
   const weatherEffects = {
       Clear: () => {

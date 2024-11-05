@@ -168,6 +168,16 @@ body, html {
     margin-bottom: 1rem;
 }
 
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#reloadBtn.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+
 /* Form styling */
 .weatherForm {
     max-width: 500px;
