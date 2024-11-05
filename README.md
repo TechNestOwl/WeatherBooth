@@ -10,9 +10,9 @@
 - **User-Friendly Interface**: Simple and intuitive design for easy navigation and quick access to weather updates.
 
 
-![App Image](Assets/1.png)
-<!-- ![App Image](Assets/2.png)
-![App Image](Assets/3.png) -->
+<!-- ![App Image](Assets/1.png) -->
+<!-- ![App Image](Assets/2.png) -->
+![App Image](Assets/3.png)
 
 
 todo: implement AI generated images in response to the weather pulled from api.
