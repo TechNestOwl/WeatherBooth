@@ -82,10 +82,31 @@ body, html {
     background: linear-gradient(transparent, #a5cde1);
     animation: rain 1s linear infinite;
 }
+/* Mist effect */
+.weather-mist {
+  background: linear-gradient(to bottom, #a5a8a9, #b1d2eb);
+}
+.mist-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #b7dce1;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: mist-move 0.01s linear infinite;
+}
+@keyframes mist-move {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    transform: translate(50%, 150%);
+  }
+}
 
 /* Snow effect */
 .weather-snow {
-  background: linear-gradient(to bottom, #cfe3eb, #b1d2eb);
+  background: linear-gradient(to bottom, #cfe3eb, #668faf);
 }
 
 .snowflake {
@@ -187,7 +208,7 @@ body, html {
 }
 
 #reloadBtn.fade-out {
-  animation: fadeOut 0.6s forwards ease-in-out;
+  animation: fadeOut 0.5s forwards ease-in-out;
 }
 
 

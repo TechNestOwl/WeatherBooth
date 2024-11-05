@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     button.classList.add("fade-out");  // Add the fade-out class
     setTimeout(() => {
         location.reload();  // Reload the page after the animation
-    }, 600);  // Timeout matches the animation duration (0.6 seconds)
+    }, 500);  // Timeout matches the animation duration 
 };
 
   // Weather effect generators
@@ -81,13 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
     Mist: () => {
       weatherBackground.className = 'weather-background weather-mist';
       const mist = [];
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 2000; i++) {
         const mistParticle = document.createElement('div');
         mistParticle.className = 'mist-particle';
         mistParticle.style.left = `${Math.random() * 100}%`;
         mistParticle.style.top = `${Math.random() * 100}%`;
-        mistParticle.style.animationDelay = `${Math.random() * 5}s`;
-        mistParticle.style.animationDuration = `${5 + Math.random() * 5}s`;
+        mistParticle.style.animationDelay = `${Math.random() * 0.5}s`;
+        mistParticle.style.animationDuration = `${1 + Math.random() * 1}s`;
         mist.push(mistParticle);
       }
       return mist;

@@ -14,7 +14,7 @@
 <!-- ![App Image](Assets/2.png) -->
 ![App Image](Assets/3.png)
 
-
+<!-- 
 todo: implement AI generated images in response to the weather pulled from api.
 OpenAI API:
-https://platform.openai.com/docs/guides/images/introduction
+https://platform.openai.com/docs/guides/images/introduction -->
