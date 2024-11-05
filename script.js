@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // h1 title/logo reload button
   document.getElementById("reloadBtn").onclick = function() {
-    location.reload();
+    const button = document.getElementById("reloadBtn");
+    button.classList.add("fade-out");  // Add the fade-out class
+    setTimeout(() => {
+        location.reload();  // Reload the page after the animation
+    }, 600);  // Timeout matches the animation duration (0.6 seconds)
 };
 
   // Weather effect generators
