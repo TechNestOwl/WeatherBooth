@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const snowflakes = [];
         const snowflakeCharacters = ['❄', '❅', '❆', '•'];
         
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 80; i++) {
             const snowflake = document.createElement('div');
             snowflake.className = 'snowflake';
             

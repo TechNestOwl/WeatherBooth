@@ -85,7 +85,7 @@ body, html {
 
 /* Snow effect */
 .weather-snow {
-  background: linear-gradient(to bottom, #E3E3E3, #FFFFFF);
+  background: linear-gradient(to bottom, #cfe3eb, #b1d2eb);
 }
 
 .snowflake {
