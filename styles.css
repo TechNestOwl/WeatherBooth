@@ -1,200 +1,338 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0; /* Light background color */
-  color: #3d3737; /* Main text color */
-  margin: 0;
-  padding: 0;
-  height: 100vh; /* Full viewport height */
+:root {
+    --primary-color: #1a73e8;
+    --secondary-color: #4285f4;
+    --text-color: #202124;
+    --background-light: rgba(255, 255, 255, 0.9);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
 }
-li {
-  /* text-decoration: none; */
-  list-style: none;
+
+/* Base styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f8f9fa;
 }
-a:hover {
-  text-decoration: underline;
+
+/* Weather background effects */
+.weather-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    overflow: hidden;
+    transition: background-color var(--transition-speed) ease;
 }
+
+/* Clear sky effect */
+.weather-clear {
+    background: linear-gradient(to bottom, #87CEEB, #E0F6FF);
+}
+
+.sun {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    box-shadow: 0 0 50px #FFD700;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Cloudy effect */
+.weather-clouds {
+    background: linear-gradient(to bottom, #C9D6FF, #E2E2E2);
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+    filter: blur(2px);
+    opacity: 0.8;
+    animation: float-horizontal 20s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+/* Rain effect */
+.weather-rain {
+    background: linear-gradient(to bottom, #363636, #666666);
+}
+
+.raindrop {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(transparent, #a5cde1);
+    animation: rain 1s linear infinite;
+}
+
+/* Snow effect */
+.weather-snow {
+  background: linear-gradient(to bottom, #E3E3E3, #FFFFFF);
+}
+
+.snowflake {
+  position: absolute;
+  color: white;
+  text-shadow: 0 0 1px rgba(0,0,0,0.1);
+  animation: snowfall-updated linear infinite;
+  z-index: 1;
+}
+
+/* Different sizes for snowflakes */
+.snowflake:nth-child(2n) {
+  font-size: 15px;
+}
+
+.snowflake:nth-child(3n) {
+  font-size: 20px;
+}
+
+.snowflake:nth-child(4n) {
+  font-size: 25px;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-horizontal {
+  0% { transform: translateX(-100%) translateY(0); }
+  100% { transform: translateX(100vw) translateY(20px); }
+}
+
+@keyframes rain {
+  0% { transform: translateY(-10px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes snowfall-updated {
+    0% {
+        transform: translate(0, -10px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(15px, 100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Interface styling */
 .interface {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    padding: 2rem;
+    z-index: 1;
+    flex-grow: 1;
 }
-.weatherForm {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-}
+
 .logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
 }
-#zipBtn {
-  background-color: rgb(224, 214, 32);
-  border-radius: 2rem;
+
+.logo h1 {
+    font-size: 3rem;
+    color: var(--text-color);
+    margin: 0;
+    text-shadow: 2px 2px 4px var(--shadow-color);
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Form styling */
+.weatherForm {
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 1rem;
+    background: var(--background-light);
+    padding: 0.5rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 #zipcode {
-  background-color: rgb(26, 88, 98);
-  color: white;
-  border-radius: 2rem;
+    flex-grow: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    outline: none;
 }
 
-ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-}
-.vertical-center {
-  min-height: 100vh;
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
+#zipBtn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 25px;
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform var(--transition-speed) ease;
 }
 
-li{
-  margin-bottom: 5px;
+#zipBtn:hover {
+    transform: scale(1.05);
+    background: var(--secondary-color);
 }
 
-
+/* Card styling */
 .card {
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
-
-  /* Optional: Add padding and margin for spacing */
-  padding: 20px;
-  margin: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--background-light);
+    border-radius: 20px;
+    box-shadow: 0 8px 16px var(--shadow-color);
+    transform: translateY(0);
+    transition: all var(--transition-speed) ease;
 }
 
-.card:hover {
-  transform: translateY(-10px); /* Lift card slightly on hover */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
-  background-color: #e9f9f6;
+.card.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
 }
 
-.card img {
-  width: 100%; /* Ensure images fill the card */
-  border-radius: 8px 8px 0 0; /* Rounded corners only at the top */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.card .card-body {
-  padding: 15px;
+.weather-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
 }
 
-.card h5 {
-  margin-bottom: 10px;
-  font-size: 1.25rem;
+.main-temp {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1.5rem 0;
 }
 
-.card p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #f6f6f6;
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
-.card a {
-  display: inline-block;
-  padding: 8px 12px;
-  margin-top: 10px;
-  background-color: #3771dd; /* Bootstrap primary color */
-  color: #b7ddd8;
-  border-radius: 4px;
-  text-decoration: none;
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.card a:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+.detail-item i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
 }
 
-
-footer{
-  background-color: rgb(20, 68, 75);
-  margin-bottom: 0;
-}
-.footer-heading {
-  font-size: 1.1rem; /* Adjust font size as needed */
-  font-weight: bold;
-  color: #696868; /* Dark text color */
-  margin-bottom: 10px; /* Space below the heading */
-}
-
-#socialIconList {
-  margin: 100px;
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+/* Footer styling */
+footer {
+    background: var(--background-light);
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: auto;
+    z-index: 1;
 
 }
 
-
-
-/* modal styling */
-/* Modal Background */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+.social-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 0 1rem;
+    transition: transform var(--transition-speed) ease;
 }
 
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  max-width: 500px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 10px;
+.social-icon:hover {
+    transform: scale(1.2);
 }
 
-/* Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+/* Loading overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
-/* Add Animation (optional) */
-.modal-content {
-  animation-name: animatetop;
-  animation-duration: 0.4s;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
+/* Responsive design */
+@media (max-width: 768px) {
+    .interface {
+        padding: 1rem;
+    }
 
-/* Background effects */
-.weather-background {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Place behind all other content */
-  overflow: hidden;
+    .logo h1 {
+        font-size: 2rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    #zipBtn {
+        width: 100%;
+    }
+
+    .weather-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
-
-/* Define basic styling for particles (like raindrops, snowflakes, clouds) */
-.particle {
-  position: absolute;
-  animation-timing-function: linear;
-}
-
-
